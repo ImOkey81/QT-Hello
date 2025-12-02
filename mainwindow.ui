@@ -6,14 +6,181 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>HEX декодер</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="templateGroup">
+      <property name="title">
+       <string>Шаблон</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelTemplateName">
+           <property name="text">
+            <string>Название:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="templateName"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="saveTemplateButton">
+           <property name="text">
+            <string>Сохранить шаблон</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="labelTemplateList">
+           <property name="text">
+            <string>Из базы:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="templateList"/>
+         </item>
+         <item row="1" column="2">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QPushButton" name="loadTemplateButton">
+             <property name="text">
+              <string>Загрузить</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="addFieldButton">
+             <property name="text">
+              <string>Добавить поле</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="removeFieldButton">
+             <property name="text">
+              <string>Удалить поле</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="fieldsTable">
+         <column>
+          <property name="text">
+           <string>Имя</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Начало (бит)</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Длина (бит)</string>
+          </property>
+         </column>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QGroupBox" name="hexGroup">
+        <property name="title">
+         <string>HEX (txt)</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QPlainTextEdit" name="hexInput">
+           <property name="placeholderText">
+            <string>Введите HEX или загрузите из файла</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="openFileButton">
+           <property name="text">
+            <string>Открыть файл</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="resultGroup">
+        <property name="title">
+         <string>Результат</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QTableWidget" name="resultTable">
+           <column>
+            <property name="text">
+             <string>Поле</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Биты</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Десятичное</string>
+            </property>
+           </column>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::SingleSelection</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="decodeButton">
+      <property name="text">
+       <string>Расшифровать</string>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar"/>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
